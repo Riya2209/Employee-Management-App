@@ -1,0 +1,82 @@
+﻿@model Employee_Management_App.Models.Employee
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>*@
+
+<style>
+    .form-container {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    button[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+    .error-message {
+        color: red;
+        font-size: 14px;
+    }
+</style>
+
+<h1>EmployeeDetailsMaintenance</h1>
+<div class="form-container">
+    <h2>Employee Details Maintenance</h2>
+    <form asp-action="SaveEmployeeDetails" method="post">
+        <div class="form-group">
+            <label for="PrimaryEmail">Primary Email:</label>
+            <input type="text" id="PrimaryEmail" name="PrimaryEmail" asp-for="PrimaryEmail" required />
+        </div>
+
+        <div class="form-group">
+            <label for="SecondaryEmail">Secondary Email:</label>
+            <input type="text" id="SecondaryEmail" name="SecondaryEmail" asp-for="SecondaryEmail" />
+            <span class="error-message" asp-validation-for="SecondaryEmail"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="Country">Country:</label>
+            <input type="text" id="Country" name="Country" asp-for="Country" required />
+        </div>
+
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+
